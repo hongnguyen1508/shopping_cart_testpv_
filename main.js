@@ -6,12 +6,12 @@ const handlebars = require('express-handlebars')
 const path = require('path')
 const {data} = require('./models/data');
 
-
 // route(app)
 
-let shoes = data();
-console.log("jdfsjdhfjdshbfhsd" + shoes);
-
+const myObjStr = JSON.stringify(data());
+const shoes = JSON.parse(myObjStr);
+console.log(shoes);
+console.log( "sjhsdhfhdsfhdvfvdhvhsvfhdvfdsh "+JSON.parse(myObjStr));
 
 app.engine('handlebars',
 handlebars({
