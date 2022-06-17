@@ -44,7 +44,7 @@
              <div class="g-price">${{this.price}}</div>
             <div><button id="{{this.id}}"
           class="add-button"
-          data-title="French Fies with Ketchup"
+          data-title="{{this.name}}"
           data-price="{{this.price}}">Add to Cart</button></div>
         </div>
       </div>
@@ -56,6 +56,15 @@
     <h2>Your Cart</h2>
     <!--  Cart Items -->
     <ul class="cart-items">
+        {{!-- <div class="cart-item-actions">
+        <div class="cart-item-count">
+          <div class="cart-item-count-button"><i class="fa fa-minus-circle" aria-hidden="true"></i></div>
+          <div class="cart-item-count-number">1</div>
+          <div class="cart-item-count-button"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+        </div>
+        <div class="cart-item-remove">
+          <i class="fa fa-trash-o"></i>
+        </div> --}}
     </ul>
     
     <div class="cart-math">
@@ -89,27 +98,41 @@ const calculateTotal = subtotal => {
   return formattedTotal;
 };
 
+
 const getImgLink = title => {
   let imgLink;
+  {{!-- var image = {{find_index title}}; --}}
   switch (title) {
-    case 'French Fies with Ketchup':
-      imgLink = 'https://assets.codepen.io/687837/plate__french-fries.png';
+    case 'Nike Air Zoom Pegasus 36':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/air-zoom-pegasus-36-mens-running-shoe-wide-D24Mcz-removebg-preview.png';
       break;
-    case 'Salmon and Vegetables':
-      imgLink = 'https://assets.codepen.io/687837/plate__salmon-vegetables.png';
+    case 'Nike Air Zoom Pegasus 36 Shield':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/air-zoom-pegasus-36-shield-mens-running-shoe-24FBGb__1_-removebg-preview.png';
       break;
-    case 'Spaghetti with Sauce':
-      imgLink = 'https://assets.codepen.io/687837/plate__spaghetti-meat-sauce.png';
+    case 'Nike CruzrOne':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/cruzrone-unisex-shoe-T2rRwS-removebg-preview.png';
       break;
-    case 'Tortellini':
-      imgLink = 'https://assets.codepen.io/687837/plate__tortellini.png';
+    case 'Nike Epic React Flyknit 2':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/epic-react-flyknit-2-mens-running-shoe-2S0Cn1-removebg-preview.png';
       break;
-    case 'Chicken Salad':
-      imgLink = 'https://assets.codepen.io/687837/plate__chicken-salad.png';
+    case 'Nike Odyssey React Flyknit 2':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/odyssey-react-flyknit-2-mens-running-shoe-T3VG7N-removebg-preview.png';
+      break;
+     case 'Nike React Infinity Run Flyknit':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/react-infinity-run-flyknit-mens-running-shoe-RQ484B__2_-removebg-preview.png';
+      break;
+    case 'Nike React Miler':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/react-miler-mens-running-shoe-DgF6nr-removebg-preview.png';
+      break;
+    case 'Nike Renew Ride':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/renew-ride-mens-running-shoe-JkhdfR-removebg-preview.png';
+      break;
+    case 'Nike Vaporfly 4% Flyknit':
+      imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/vaporfly-4-flyknit-running-shoe-v7G3FB-removebg-preview.png';
       break;
     default:
-      imgLink = 'https://assets.codepen.io/687837/plate__chicken-salad.png';}
-
+        imgLink = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/zoom-fly-3-premium-mens-running-shoe-XhzpPH-removebg-preview.png';
+      }
   return imgLink;
 };
 
@@ -125,16 +148,7 @@ $('.add-button').on('click', function () {
         <p class="cart-item-heading">${title}</p>
         <p class="g-price">$${price}</p>
       </div>
-      <div class="cart-item-actions">
-        <div class="cart-item-count">
-          <div class="cart-item-count-button"><img src="/assets/minus.png"></div>
-          <div class="cart-item-count-number">1</div>
-          <div class="cart-item-count-button"><img src="/assets/plus.png"></div>
-        </div>
-        <div class="cart-item-remove">
-          <img class="cart-item-remove-icon" src="/assets/trash.png">
-        </div>
-      </div>
+    
     </li>
   `;
   $('.cart-items').append(element);

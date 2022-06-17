@@ -12,12 +12,26 @@ const myObjStr = JSON.stringify(data());
 const shoes = JSON.parse(myObjStr);
 console.log(shoes);
 console.log( "sjhsdhfhdsfhdvfvdhvhsvfhdvfdsh "+JSON.parse(myObjStr));
+const arr = data().shoes;
+console.log(arr.length);
 
 app.engine('handlebars',
 handlebars({
   extname: "handlebars",
   defaultLayout: "",
   layoutsDir: "",
+  helpers:{
+    'find_index': function(title) {
+      const s = 0;
+      for(const i=0; i<arr.length; i++) {
+        if(arr[i].name == title)
+            s = i;
+      }
+      let image = arr[s].image;
+      console.log(image);
+      return image;
+    },
+  }
 }));
 
 app.set('view engine', 'handlebars')
