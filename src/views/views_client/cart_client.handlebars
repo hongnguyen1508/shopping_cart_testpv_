@@ -12,11 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Style CSS -->
     <link rel="stylesheet" href="/client_styles/assets/css/style.css">
 	<!-- Demo CSS (No need to include it into your project) -->
 	<link rel="stylesheet" href="/client_styles/assets/css/demo.css">
+  <link rel="stylesheet" href="/client_styles/assets/fonts/fontawesome-free-5.15.4/fontawesome-free-5.15.4-web/css/all.min.css">
   
   </head>
   <body>
@@ -32,8 +33,8 @@
     <ul class="menu-items">
        {{#each data.shoes}}
       <!--    Menu Item 1    -->
-      <div class="menu-item" >
-          <div class="menu-image" style="background-color: {{this.color}}">
+      <div class="menu-item" style="border-radius: 10px;" >
+          <div class="menu-image" style=" background-color: {{this.color}}; border-radius: 10px;">
         <img src="{{this.image}}" alt="French Fries with Ketchup" class="menu-image">
         </div>  
         <div class="menu-item-dets">
@@ -120,19 +121,21 @@ $('.add-button').on('click', function () {
 
   const element = `
     <li class="cart-item">
-      <img src="${imgLink}" alt="${title}">
-      <div class="cart-item-dets">
+      <div class="cart-item-left">
+        <img src="${imgLink}" alt="${title}">
+      </div>
+      <div class="cart-item-right">
         <p class="cart-item-heading">${title}</p>
         <p class="g-price">$${price}</p>
-      </div>
-      <div class="cart-item-actions">
-        <div class="cart-item-count">
-          <div class="cart-item-count-button"><img src="/assets/minus.png"></div>
-          <div class="cart-item-count-number">1</div>
-          <div class="cart-item-count-button"><img src="/assets/plus.png"></div>
-        </div>
-        <div class="cart-item-remove">
-          <img class="cart-item-remove-icon" src="/assets/trash.png">
+        <div class="cart-item-actions">
+          <div class="cart-item-count">
+            <div class="cart-item-count-button">-</div>
+            <div class="cart-item-count-number">1</div>
+            <div class="cart-item-count-button">+</div>
+          </div>
+          <div class="cart-item-remove">
+            <img class="cart-item-remove-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALISURBVHic7Zs9bxNBEIYfgyUKAhhQUhDRICEBCh0fgkhBNIT8gPwZ6Gig5y8QCUhH5AqE3EZJgQRKEDSpKEAQkTMdcijGRvi8Z+/e3eze4X2kKe40t/Pu+LRfN4bIdNNQbLsJ3ATOFWznC7AJ/C6syCMngC3gsCTb7LdZGx5SXucH9kBD6BGNRoGrNWlTLQEa7R5VaFMtAbXBZwLWkVnHxtZ9iZr6N6Bp6TcHXAOOW/qfz7i36un5X8A28NXSfywrQJfypzVtS4D7ZSRgpwKdyWsfJnXOZincxf7VrxoJcHKcg80g2ClFShg6ZTQyD2xQr3GgC7yi+EYs8t+TZ329gKwJfiLzbRU4Cywh/fmuGegpw/PssmYwS5aAfURTD3ikFegKo4PNe61gDrxjWFMPuGj7sMte4JLh3mWH57VYSF03cDg7cEmAabxQ2aM7UkjX1O8GfSRgHmgjM8YO4wfOFWC379umYguZVcyrrkm0U/4JMGvwm2N0tblh0b5Jk+222csbcCd1PYOsI9KYzhvuqij6Bx8JMO0kZyz91HehcRAMLSA0MQGhBYQmJiC0gNDEBIQWEJqYgNACQhMTEFpAaGICQgsITUxAaAGhiQnwEMP0+axr6af+6c1HAjqp6wQpo02zxWhi3moIykveU+FBfUGCfEq7N8Z3GSlrSbD/vl/oVNiFvAnQpvLH4pUmJsDBN2tEDlnHn1UBZppljLgkYC/j/i2HNspmMeP+nkawY8ABowPOa41gFjSQaTKt5wDRqsKaIeAh8Bjd/x+laQBPMrQ80wy8iJSgmAK/QWpzW4rxW8gndNMvPyiPua0YH4DnGcGrYGuK/f7LGeBjgM5Nsl3gtGK/h7gAfFbukIt96mvySgt4WVB4UesBL4BTyn0dy42+iEGxog/bR8ai60XFlzl1NZFiyllknNDgB/ANKbaq1V9pI1XlD82w8ru3YIVHAAAAAElFTkSuQmCC">
+          </div>
         </div>
       </div>
     </li>
