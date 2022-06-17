@@ -30,7 +30,7 @@
   <div class="screen-togo">
     <h2>Our Products</h2>
     <ul class="menu-items">
-       {{#each data}}
+       {{#each data.shoes}}
       <!--    Menu Item 1    -->
       <div class="menu-item" >
           <div class="menu-image" style="background-color: {{this.color}}">
@@ -65,7 +65,6 @@
 </div>    
      <!-- END EDMO HTML (Happy Coding!)-->
  </main>
- 
       
   <footer class="credit"></footer>
   
@@ -126,6 +125,16 @@ $('.add-button').on('click', function () {
         <p class="cart-item-heading">${title}</p>
         <p class="g-price">$${price}</p>
       </div>
+      <div class="cart-item-actions">
+        <div class="cart-item-count">
+          <div class="cart-item-count-button"><img src="/assets/minus.png"></div>
+          <div class="cart-item-count-number">1</div>
+          <div class="cart-item-count-button"><img src="/assets/plus.png"></div>
+        </div>
+        <div class="cart-item-remove">
+          <img class="cart-item-remove-icon" src="/assets/trash.png">
+        </div>
+      </div>
     </li>
   `;
   $('.cart-items').append(element);
@@ -140,14 +149,6 @@ $('.add-button').on('click', function () {
     <p class="cart-math-item">
       <span class="cart-math-header">Subtotal:</span>
       <span class="g-price subtotal">$${formattedSubtotal}</span>
-    </p>
-    <p class="cart-math-item">
-      <span class="cart-math-header">Tax:</span>
-      <span class="g-price tax">$${tax}</span>
-    </p>
-    <p class="cart-math-item">
-      <span class="cart-math-header">Total:</span>
-      <span class="g-price total">$${total}</span>
     </p>
   `);
 });
