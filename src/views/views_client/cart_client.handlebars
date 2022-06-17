@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta>
+    <title>Shopping Cart</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/client_styles/assets/css/style.css">
+	<!-- Demo CSS (No need to include it into your project) -->
+	<link rel="stylesheet" href="/client_styles/assets/css/demo.css">
+  
+  </head>
+  <body>
+ <header class="intro">
+ {{!-- <h1>Shopping Cart</h1> --}}
+ </header>
+  
+ <main>
+     <!-- Start DEMO HTML (Use the following code into your project)-->
+ <div class="container">
+  <div class="screen-togo">
+    <h2>Our Products</h2>
+    <ul class="menu-items">
+       {{#each data}}
+      <!--    Menu Item 1    -->
+      <div class="menu-item" >
+          <div class="menu-image" style="background-color: {{this.color}}">
+        <img src="{{this.image}}" alt="French Fries with Ketchup" class="menu-image">
+        </div>  
+        <div class="menu-item-dets">
+          <p class="menu-item-heading">{{this.name}}</p>
+        </div>
+        <div class="shop-item-description">{{this.description}}</div>
+        <div class="shop-item-bottom">
+             <div class="g-price">${{this.price}}</div>
+            <div><button id="{{this.id}}"
+          class="add-button"
+          data-title="French Fies with Ketchup"
+          data-price="{{this.price}}">Add to Cart</button></div>
+        </div>
+      </div>
+      {{/each}}
+      <!--    Menu Item 2    -->
+    </ul>
+  </div>
+  <div class="screen-cart">
+    <h2>Your Cart</h2>
+    <!--  Cart Items -->
+    <ul class="cart-items">
+    </ul>
+    
+    <div class="cart-math">
+      <p>Add items to cart</p>
+    </div>
+  </div>
+</div>    
+     <!-- END EDMO HTML (Happy Coding!)-->
+ </main>
+ 
+      
+  <footer class="credit"></footer>
+  
+<!-- jQuery -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+      
+<!-- Shopping Cart Js -->
+      
+<script>
+  let subtotal = 0;
+
+const calculateTax = subtotal => {
+  const tax = subtotal * 0.13;
+  const formattedTax = tax.toFixed(2);
+  return formattedTax;
+};
+
+const calculateTotal = subtotal => {
+  const tax = calculateTax(subtotal);
+  const total = parseFloat(subtotal) + parseFloat(tax);
+  const formattedTotal = total.toFixed(2);
+  return formattedTotal;
+};
+
+const getImgLink = title => {
+  let imgLink;
+  switch (title) {
+    case 'French Fies with Ketchup':
+      imgLink = 'https://assets.codepen.io/687837/plate__french-fries.png';
+      break;
+    case 'Salmon and Vegetables':
+      imgLink = 'https://assets.codepen.io/687837/plate__salmon-vegetables.png';
+      break;
+    case 'Spaghetti with Sauce':
+      imgLink = 'https://assets.codepen.io/687837/plate__spaghetti-meat-sauce.png';
+      break;
+    case 'Tortellini':
+      imgLink = 'https://assets.codepen.io/687837/plate__tortellini.png';
+      break;
+    case 'Chicken Salad':
+      imgLink = 'https://assets.codepen.io/687837/plate__chicken-salad.png';
+      break;
+    default:
+      imgLink = 'https://assets.codepen.io/687837/plate__chicken-salad.png';}
+
+  return imgLink;
+};
+
+$('.add-button').on('click', function () {
+  const title = $(this).data('title');
+  const price = $(this).data('price');
+  const imgLink = getImgLink(title);
+
+  const element = `
+    <li class="cart-item">
+      <img src="${imgLink}" alt="${title}">
+      <div class="cart-item-dets">
+        <p class="cart-item-heading">${title}</p>
+        <p class="g-price">$${price}</p>
+      </div>
+    </li>
+  `;
+  $('.cart-items').append(element);
+
+  subtotal = subtotal + price;
+
+  const formattedSubtotal = subtotal.toFixed(2);
+  const tax = calculateTax(subtotal);
+  const total = calculateTotal(subtotal);
+
+  $('.cart-math').html(`
+    <p class="cart-math-item">
+      <span class="cart-math-header">Subtotal:</span>
+      <span class="g-price subtotal">$${formattedSubtotal}</span>
+    </p>
+    <p class="cart-math-item">
+      <span class="cart-math-header">Tax:</span>
+      <span class="g-price tax">$${tax}</span>
+    </p>
+    <p class="cart-math-item">
+      <span class="cart-math-header">Total:</span>
+      <span class="g-price total">$${total}</span>
+    </p>
+  `);
+});
+</script>
+  </body>
+</html>

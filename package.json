@@ -1,0 +1,25 @@
+{
+  "name": "shopping_cart",
+  "version": "1.0.0",
+  "description": "Shopping Cart",
+  "main": "main.js",
+  "dependencies": {
+    "connect-mongodb-session": "^3.1.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^5.3.5",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.9",
+    "nodemon": "^2.0.13",
+    "passport": "^0.5.0",
+    "passport-facebook": "^3.0.0",
+    "sass": "^1.42.1"
+  },
+  "scripts": {
+    "watch_cli_demo": "sass -w src/public/client_styles/assets/scss/demo.scss src/public/client_styles/assets/css/demo.css",
+    "watch_cli_style": "sass -w src/public/client_styles/assets/scss/style.scss src/public/client_styles/assets/css/style.css",
+    "start": "npx nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nhom3_Trang_Hong_Y_Quoc",
+  "license": "ISC"
+}
