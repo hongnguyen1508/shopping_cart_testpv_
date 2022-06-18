@@ -132,7 +132,7 @@ article p {
 
 @media only screen and (min-width: 1280px) {
   main {
-    max-width: 960px;
+    max-width: auto;
     margin-left: auto;
     margin-right: auto;
     padding: 24px;
@@ -429,3 +429,30 @@ h2 {
 .cart-math {
   float: right;
 }
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.container:before {
+  content: "";
+  display: block;
+  position: fixed;
+  width: 300%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  transform: translateX(-50%) skewY(-8deg);
+  background-color: #f6c90e;
+  -webkit-animation: wave 8s ease-in-out infinite alternate;
+  animation: wave 8s ease-in-out infinite alternate;
+}
+
