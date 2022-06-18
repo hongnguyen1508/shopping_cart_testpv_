@@ -266,8 +266,9 @@ code {
 
 .cart-item-image-block img {
   display: flex;
-  width: 50%;
-  /* transform: rotate(-28deg) translateY(-40px); */
+  width: 190px;
+  border-radius: 100%;
+  transform: rotate(-28deg) translateY(-20px);
   filter: drop-shadow(0 30px 20px rgba(0,0,0,.2));
 }
 
@@ -305,7 +306,9 @@ code {
   align-items: center;
   overflow: hidden;
 }
-
+::-webkit-scrollbar{
+  display: none;
+}
 .shop-item-description {
   font-size: 13px;
   color: #777;
@@ -389,15 +392,12 @@ h2 {
   height: 700px;
   box-shadow: 0 3.2px 2.2px rgb(0 0 0 / 2%), 0 7px 5.4px rgb(0 0 0 / 3%), 0 12.1px 10.1px rgb(0 0 0 / 4%), 0 19.8px 18.1px rgb(0 0 0 / 4%), 0 34.7px 33.8px rgb(0 0 0 / 5%), 0 81px 81px rgb(0 0 0 / 7%);
   border-radius: 30px;
+  overflow: hidden;
   padding: 0 28px;
   position: relative;
   margin-bottom: 20px;
-  overflow: hidden;
 }
- 
-::-webkit-scrollbar {
-  display: none;
-}
+
 
 .screen-cart:before {
   content: "";
